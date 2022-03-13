@@ -45,7 +45,6 @@ int main() {
 	int counter = 0;
 	string leader = "x";
 	int b = 0; int e = 0; int m = 0;	
-	//for (Game& i: g) cout << i.g << " " << i.n << " " << i.p << "\n";
 
 	// g - game, n - name, p - points
 	for (Game& i: g) {
@@ -56,12 +55,8 @@ int main() {
 		} else if (i.n == "Mildred") {
 			m += i.p;
 		}
-
-		//cout << "========";
-		//cout << i.n << " == " << b << " == " << e << " == " << m << "\n";
 		
 		string new_leader = comp_int(b, e, m);
-		//cout << leader << " new === " << new_leader << "\n";
 		if (leader != new_leader) {
 			leader = new_leader;
 			counter++;

@@ -27,8 +27,6 @@ int main() {
 
 	for (char j: B) {
 		bnum *= getIndex(alphabet, j) + 1;
-
-	//	cout << " index = " << index << " bnum = " << bnum << "\n";
 	}
    	bnum = bnum % 47;
 
