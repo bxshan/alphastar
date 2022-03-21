@@ -16,22 +16,18 @@ int main() {
 	vector<int> l[4];
 	for (vector<int>& i: l) i.reserve(N);
 
-	for (int r = 0; r < N; r++) l[0][r] = r + 1;
+	for (int i = 0; i < N; i++) l[0][i] = i + 1;
 	
-
-		
 	for (int i = 1; i < 4; i++) {
 		for (int j = 0; j < N; j++) {
 			l[i][j] = l[i-1][rule[j]];
 		}
 	}
 
+	vector<int> original_id(N);
 	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < N; j++) {
-			if (l[3][j] - 1 == i) {
-				cout << id[l[3][i] - 1];
-				cout << endl;
-			}
-	   	}
-   	}
+		original_id[l[3][i] - 1] = id[i];
+	}
+
+	for (int i: original_id) cout << i << endl;
 }
