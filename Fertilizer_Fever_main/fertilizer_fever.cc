@@ -1,9 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int N, M, F, S, cnt;
+int N, M, F, S;
 vector <int> bad_fields;
 set <int> output;
+set <int> cows;
 
 bool comp(const vector<int>& a, const vector<int>& b) { return a[2] < b[2]; }
 
@@ -30,17 +31,17 @@ int main () {
   }
 
   for (int m = 1; m <= M; m++) {
-    cnt = 0;
+    cows.clear();
     for (int i = 0; i < F; i++) {
       for (int j = 0; j < S; j++) {
         if (f[i][1] == m) {
           if (f[i][0] == s[j][0] && f[i][2] < s[j][1]) {
-            cnt++;
+            cows.insert(f[i][0]);
           }
         }
       }
     }
-    if (cnt >= S) bad_fields.push_back(m);
+    if (cows.size() == S) bad_fields.push_back(m);
   }
 
   for (int i = 0; i < F; i++) {
