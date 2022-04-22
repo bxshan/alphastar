@@ -1,1 +1,1 @@
-# alphastar
+### USACO practice on Alphastar

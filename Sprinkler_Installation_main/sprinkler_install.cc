@@ -32,8 +32,6 @@ int main () {
       tmp_outY = i;
       tmp_outX = j;
 
-      //cout << tmp_output;
-
       if (tmp_output > output) {
         output = tmp_output;
         outY = tmp_outY;

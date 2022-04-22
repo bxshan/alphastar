@@ -6,12 +6,12 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(nullptr);
 	cin >> A >> B;
-	
+
 	vector<int> digits(10, 0);
 
 	for (int i = A; i <= B; i++) {
 		int number = i;
-		while (number > 0) { 
+		while (number > 0) {
 			int digit = number % 10;
 		   	number /= 10;
 			digits[digit]++;
@@ -20,4 +20,4 @@ int main() {
 	for (int i: digits) {
 		cout << i << " ";
 	}
-}	
+}
