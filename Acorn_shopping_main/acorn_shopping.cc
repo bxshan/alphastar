@@ -24,7 +24,6 @@ int main() {
     }
 
     sort(a.begin(), a.end(), comp);
-    // for (Acorns& i: a) cout << i.d << " " << i.p << "\n";
 
     int price = 0;
 
