@@ -1,88 +1,72 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int N, output;
-bool correct = true;
+int N, ans;
 
 int main() {
   ios::sync_with_stdio(false);
   cin.tie(nullptr);
 
   cin >> N;
+
   vector <int> c(N);
-  // L - F, R - T
   vector <bool> d(N);
-  for (int i = 0; i < N; i++) {
-      cin >> c[i];
-  }
+  vector <int> f(N);
+
+  for (int& i: c) cin >> i;
   sort(c.begin(), c.end());
-  c.insert(c.begin(), 10000);
-  c.push_back(10000);
 
-  for (int i: c) {
-    cout << i << " ";
+  for(int i = 0; i < N; i++) {
+    if (i == 0) {
+      d[i] = 1;
+    } else if (i == N - 1) {
+      d[i] = 0;
+    } else if (c[i] - c[i-1] > c[i+1] - c[i]) {
+      d[i] = 1;
+    } else if (c[i] - c[i-1] <= c[i+1] - c[i]) {
+      d[i] = 0;
+    }
   }
-  cout << endl;
 
-  for (int i = 1; i < N; i++) {
-    cout << "i" << i << endl;
-    cout << c[i - 1] << " " << c[i] << " " << c[i+1] << endl;
-    cout << abs(c[i] - c[i-1]) << " : " << abs(c[i+1] - c[i]) << endl;
-    if (abs(c[i] - c[i-1]) <= abs(c[i+1] - c[i])) {
-      d[i] = false; //L
+  for (int i = 0; i < N; i++) {
+    if (i == 0) {
+      if (d[i+1] == 0) {
+        f[i] = 1;
+      } else if (d[i+1] == 1) {
+        f[i] = 0;
+      }
+    } else if (i == N-1) {
+      if (d[i-1] == 0) {
+        f[i] = 0;
+      } else if (d[i-1] == 1) {
+        f[i] = 1;
+      }
     } else {
-      d[i] = true; //R
-    }
-
-    cout << d[i] << endl;
-  }
-
-  cout << endl << endl;
-  for (bool k: d) {
-    if (k) cout << "right" << " ";
-    if (!k) cout << "left" << " ";
-  }
-
-
-
-  /*c.insert(c.begin(), -10000);
-  // c.insert(c.begin(), -1001);
-  c.push_back(10000);
-
-  for (int i = 0; i < c.size(); i++) cout << c[i] << " ";
-  cout << endl;
-  for (int i = 1; i < c.size(); i++) cout << c[i] - c[i-1] << " ";
-  cout << endl;
-  //for (int i: c) cout << i << " ";
-  //cout << endl;
-
-
-  // for (int i = 2; i < N-1; i++) {
-  //   if (c[i] - c[i-1] <= c[i+1] - c[i] && c[i] - c[i-1] < c[i-1] - c[i-2]) {
-  //     //cout << c[i-1] << " " << c[i] << endl;
-  //     output++;
-  //   }
-  // }
-
-  for (int i = 1; i <= N-1; i++) {
-    // if (c[i+1] - c[i] <= c[i+2] - c[i+1] && c[i+1] - c[i] < c[i] - c[i-1]) {
-    if (c[i+1] - c[i] > c[i+2] - c[i+1]) {
-      //cout << c[i-1] << " " << c[i] << endl;
-      cout << c[i] << endl;
-      output++;
+      if (d[i-1] == 1 && d[i+1] == 0) {
+        f[i] = 2;
+      } else if ((d[i-1] == 1 && d[i+1] != 0) || (d[i-1] != 1 && d[i+1] == 0)) {
+        f[i] = 1;
+      } else if (d[i-1] != 1 && d[i+1] != 0) {
+        f[i] = 0;
+      }
     }
   }
 
+  for (int i: f) {
+    if (i == 0) {
+      ans++;
+    }
+  }
 
-                   \
-          | |   |  | |
-    -1001 2 3 4 8 11 16 24
-          |              |
+  for (int i = 0; i < N-1; i++) {
+    if (d[i] == 1 && d[i+1] == 0) {
+      if (f[i] == 1 && f[i+1] == 1) {
+        ans++;
+      }
+    }
+  }
 
+  cout << ans;
 
-    */
-
-    //cout << output;
-
-    return 0;
+  return 0;
 }
