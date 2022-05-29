@@ -1,1 +1,1 @@
-### USACO practice on Alphastar
+### Coding practice on Alphastar
