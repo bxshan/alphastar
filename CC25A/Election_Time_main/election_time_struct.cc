@@ -7,12 +7,8 @@ struct cows {
     long avote, bvote;
 };
 
-bool acomp(cows a, cows b) {
-    return (a.avote > b.avote);
-}
-bool bcomp(cows a, cows b) {
-    return (a.bvote > b.bvote);
-}
+bool acomp(cows a, cows b) { return (a.avote > b.avote); }
+bool bcomp(cows a, cows b) { return (a.bvote > b.bvote); }
 
 int main() {
     ios::sync_with_stdio(false);
@@ -26,7 +22,7 @@ int main() {
     }
 
     sort(c.begin(), c.end(), acomp);
-    sort(c.begin(), c.begin()+K, bcomp);
+    sort(c.begin(), c.begin() + K, bcomp);
 
     cout << c[0].id;
 
