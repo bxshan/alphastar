@@ -46,35 +46,35 @@ int main() {
     if (pi == 1 || pi == 2 || pi == 4) {
         cout << (a2x - a4x) * (a2y - a4y);
     } else if (pi == 0) {
-      pi = 0;
-      if (point_inside(a1x, a1y, b2x, b2y, b4x, b4y)) {
-          pi++;
-      }
-      if (point_inside(a2x, a2y, b2x, b2y, b4x, b4y)) {
-          pi++;
-      }
-      if (point_inside(a3x, a3y, b2x, b2y, b4x, b4y)) {
-          pi++;
-      }
-      if (point_inside(a4x, a4y, b2x, b2y, b4x, b4y)) {
-          pi++;
-      }
-
-      if (pi == 0) {
-        cout << (a2x - a4x) * (a2y - a4y);
-      } else if (pi == 2) {
-        if (b4x <= a2x && b4x >= a4x) {
-          cout << (b4x - a4x) * (a2y - a4y);
-        } else if (b2x <= a2x && b2x >= a4x) {
-          cout << (a2x - b2x) * (a2y - a4y);
-        } else if (b4y <= a2y && b4y >= a4y) {
-          cout << (a2x - a4x) * (b4y - a4y);
-        } else if (b2y <= a2y && b2y >= a4y) {
-          cout << (a2x - a4x) * (a2y - a4y);
+        pi = 0;
+        if (point_inside(a1x, a1y, b2x, b2y, b4x, b4y)) {
+            pi++;
         }
-       } else if (pi == 4) {
-        cout << 0;
-      }
+        if (point_inside(a2x, a2y, b2x, b2y, b4x, b4y)) {
+            pi++;
+        }
+        if (point_inside(a3x, a3y, b2x, b2y, b4x, b4y)) {
+            pi++;
+        }
+        if (point_inside(a4x, a4y, b2x, b2y, b4x, b4y)) {
+            pi++;
+        }
+
+        if (pi == 0) {
+            cout << (a2x - a4x) * (a2y - a4y);
+        } else if (pi == 2) {
+            if (b4x <= a2x && b4x >= a4x) {
+                cout << (b4x - a4x) * (a2y - a4y);
+            } else if (b2x <= a2x && b2x >= a4x) {
+                cout << (a2x - b2x) * (a2y - a4y);
+            } else if (b4y <= a2y && b4y >= a4y) {
+                cout << (a2x - a4x) * (b4y - a4y);
+            } else if (b2y <= a2y && b2y >= a4y) {
+                cout << (a2x - a4x) * (a2y - a4y);
+            }
+        } else if (pi == 4) {
+            cout << 0;
+        }
     }
 
     return 0;

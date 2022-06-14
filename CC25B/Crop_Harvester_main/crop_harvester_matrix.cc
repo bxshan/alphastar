@@ -4,7 +4,7 @@ using namespace std;
 int a2x, a4x, a2y, a4y;
 int b2x, b4x, b2y, b4y;
 
-//a u bh
+// a u bh
 int xmin = -1;
 int ymin = -1;
 int xmax = -1;
@@ -27,49 +27,49 @@ int main() {
     b2y += 1000;
     b4y += 1000;
     for (int i = 0; i < 2001; i++) {
-      for (int j = 0; j < 2001; j++) {
-        f[i][j] = false;
-      }
+        for (int j = 0; j < 2001; j++) {
+            f[i][j] = false;
+        }
     }
 
     for (int i = a4x; i < a2x; i++) {
-      for (int j = a4y; j < a2y; j++) {
-        f[i][j] = true;
-      }
+        for (int j = a4y; j < a2y; j++) {
+            f[i][j] = true;
+        }
     }
 
     for (int i = b4x; i < b2x; i++) {
-      for (int j = b4y; j < b2y; j++) {
-        f[i][j] = false;
-      }
+        for (int j = b4y; j < b2y; j++) {
+            f[i][j] = false;
+        }
     }
 
     bool found = false;
     for (int i = a4x; i < a2x; i++) {
-      for (int j = a4y; j < a2y; j++) {
-        if (f[i][j]) {
-          found = true;
+        for (int j = a4y; j < a2y; j++) {
+            if (f[i][j]) {
+                found = true;
 
-          if (xmin == -1) {
-            xmin = i;
-          }
-          if (ymin == -1) {
-            ymin = j;
-          }
-          if (xmax < i) {
-            xmax = i;
-          }
-          if (ymax < j) {
-            ymax = j;
-          }
+                if (xmin == -1) {
+                    xmin = i;
+                }
+                if (ymin == -1) {
+                    ymin = j;
+                }
+                if (xmax < i) {
+                    xmax = i;
+                }
+                if (ymax < j) {
+                    ymax = j;
+                }
+            }
         }
-      }
     }
 
     if (!found) {
-      cout << 0;
+        cout << 0;
     } else {
-      cout << (xmax-xmin + 1) * (ymax-ymin + 1);
+        cout << (xmax - xmin + 1) * (ymax - ymin + 1);
     }
 
     return 0;
