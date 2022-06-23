@@ -18,10 +18,6 @@ int main() {
         cin >> c[0][i] >> c[1][i];
     }
 
-    for (int i = 0; i < N; i++) {
-        cout << " === " << c[0][i] << " " << c[1][i] << endl;
-    }
-
     vector<int>::iterator i = c[0].begin();
     vector<int>::iterator j = c[1].begin();
 
@@ -31,10 +27,6 @@ int main() {
         if (i == c[0].begin()) minmax_ax = minmax_bx;
         if (i == c[0].end() - 1) minmax_bx = minmax_ax;
 
-        cout << " ??? " << *minmax_ax.first << " : " << *minmax_ax.second
-             << endl;
-        cout << " ??? " << *minmax_bx.first << " : " << *minmax_bx.second
-             << endl;
         l = max(*minmax_ax.second, *minmax_bx.second) -
             min(*minmax_ax.first, *minmax_bx.first);
 
@@ -43,20 +35,14 @@ int main() {
         if (j == c[1].begin()) minmax_ay = minmax_by;
         if (j == c[1].end() - 1) minmax_by = minmax_ay;
 
-        cout << " ??? " << *minmax_ay.first << " : " << *minmax_ay.second
-             << endl;
-        cout << " ??? " << *minmax_by.first << " : " << *minmax_by.second
-             << endl;
         w = max(*minmax_ay.second, *minmax_by.second) -
             min(*minmax_ay.first, *minmax_by.first);
-
-        cout << l << " " << w << " " << l * w << endl;
 
         curr_area = l * w;
         if (curr_area < ans) ans = curr_area;
 
-        ++i;
-        ++j;
+        i++;
+        j++;
     }
 
     cout << ans;
