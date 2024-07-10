@@ -1,3 +1,6 @@
+# SWP FILES
+*.swp
+
 # AUTO GENERATED FILES
 .DS_Store
 
